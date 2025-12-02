@@ -117,7 +117,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:padding="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="60dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <!-- Floating Action Button for Summary -->
