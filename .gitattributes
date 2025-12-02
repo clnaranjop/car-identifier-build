@@ -1,2 +1,4 @@
 app/src/main/assets/mobilenetv3_embeddings.onnx filter=lfs diff=lfs merge=lfs -text
 app/src/main/assets/embeddings_mobilenetv3.json filter=lfs diff=lfs merge=lfs -text
+app/src/main/assets/reference_images/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+app/src/main/assets/reference_images/**/*.png filter=lfs diff=lfs merge=lfs -text
