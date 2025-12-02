@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App General -->
+    <string name="app_name">Car Identifier</string>
+    <string name="app_tagline">Identify diecast cars instantly</string>
+
+    <!-- MainActivity -->
+    <string name="car_of_the_day">Car of the Day</string>
+    <string name="button_identify_with_camera">Identify with camera</string>
+    <string name="button_search_by_name">Search by name</string>
+    <string name="stat_scanned">Scanned</string>
+    <string name="stat_collection">Collection</string>
+    <string name="stat_models">Models</string>
+
+    <!-- CameraActivity -->
+    <string name="camera_title">Point camera at diecast car</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="photo_progress">Photo %1$d of %2$d</string>
+    <string name="angle_side_right">Right side view</string>
+    <string name="angle_side_left">Left side view</string>
+    <string name="angle_front_45">45° front right view</string>
+    <string name="angle_back_34">3/4 rear right view</string>
+    <string name="guidance_position">Position the diecast car in the frame</string>
+    <string name="processing_multi_images">Processing %1$d photos</string>
+    <string name="processing_multi_images_with_filter">Processing %1$d photos (years %2$d-%3$d)</string>
+    <string name="processing_image">Processing image...</string>
+    <string name="photo_captured">Photo %1$d/%2$d captured. Next angle...</string>
+    <string name="failed_to_capture">Failed to capture photo</string>
+    <string name="failed_to_start_camera">Failed to start camera</string>
+    <string name="failed_to_bind_camera">Failed to bind camera</string>
+    <string name="failed_to_process_image">Failed to process selected image</string>
+    <string name="content_description_back">Back</string>
+    <string name="content_description_flash">Flash</string>
+    <string name="content_description_year_filter">Year Filter</string>
+    <string name="content_description_gallery">Gallery</string>
+    <string name="content_description_switch_camera">Switch Camera</string>
+    <string name="content_description_angle_example">Angle example</string>
+
+    <!-- Year Filter Dialog -->
+    <string name="year_filter_title">Filter by year</string>
+    <string name="year_filter_current">Current filter: %1$d-%2$d</string>
+    <string name="year_filter_no_filter">No filter (all years)</string>
+    <string name="year_filter_select_range">Select a range:</string>
+    <string name="year_filter_all_years">All years (1968-2024)</string>
+    <string name="year_filter_last_5">Last 5 years (2020-2024) - Fast</string>
+    <string name="year_filter_last_10">Last 10 years (2015-2024) - Recommended</string>
+    <string name="year_filter_last_20">Last 20 years (2005-2024)</string>
+    <string name="year_filter_custom">Custom range...</string>
+    <string name="year_filter_applied">Filter applied: %1$d-%2$d</string>
+    <string name="year_filter_all_applied">Searching in all years (%1$d models)</string>
+    <string name="year_filter_custom_title">Custom range</string>
+    <string name="year_filter_custom_message">Enter year range (e.g.: 2010-2020):</string>
+    <string name="year_filter_custom_hint">Ex: 2010-2020</string>
+    <string name="year_filter_invalid_format">Invalid format. Use: YYYY-YYYY</string>
+
+    <!-- Result Dialog -->
+    <string name="result_dialog_title">Identification Result</string>
+    <string name="result_identified">Model Identified!</string>
+    <string name="result_model">Model: %1$s</string>
+    <string name="result_confidence">Confidence: %1$d%%</string>
+    <string name="result_series">Series: %1$s</string>
+    <string name="result_year_label">Year: %1$d</string>
+    <string name="result_category">Category: %1$s</string>
+    <string name="result_rarity">Rarity: %1$s</string>
+    <string name="result_detected">Model detected!</string>
+    <string name="result_not_detected">No model detected</string>
+    <string name="result_low_confidence">Very low confidence: %1$d%%</string>
+    <string name="button_scan_another">Scan Another</string>
+    <string name="button_back">Back</string>
+
+    <!-- ResultActivity -->
+    <string name="title_identification_result">Identification Result</string>
+    <string name="label_your_photo">Your photo</string>
+    <string name="label_reference">Reference</string>
+    <string name="content_description_captured_image">Captured car image</string>
+    <string name="content_description_reference_image">Database reference image</string>
+    <string name="retry_suggestion">Try taking a clearer photo with better lighting</string>
+    <string name="button_share_result">Share Result</string>
+    <string name="share_result_text_identified">I identified this diecast car with %1$d%% confidence using Diecast Car Identifier!</string>
+    <string name="share_result_text_unidentified">I scanned this car with Diecast Car Identifier - can you help identify it?</string>
+    <string name="share_result_title">Share Result</string>
+    <string name="message_failed_to_share">Failed to share result</string>
+    <string name="message_cannot_save_unidentified">Cannot save unidentified item</string>
+
+    <!-- SelectResultActivity -->
+    <string name="title_select_your_hotwheels">Results</string>
+    <string name="question_which_is_your_car">Which is your car?</string>
+    <string name="instruction_select_best_match">Select the model that matches best</string>
+    <string name="content_description_captured_image_label">Captured image</string>
+    <string name="button_retry_same_car">Retry with same car</string>
+    <string name="button_try_different_car">Try with another car</string>
+    <string name="button_manual_search">Enter name manually</string>
+    <string name="rank_label">#%1$d</string>
+    <string name="content_description_model_image">Model image</string>
+    <string name="confidence_match">%1$d%% match</string>
+    <string name="button_choose">Choose</string>
+
+    <!-- Retry Dialog -->
+    <string name="retry_dialog_title">Retry</string>
+    <string name="retry_dialog_message">%1$s\n\nDo you want to change the year range before searching again?</string>
+    <string name="retry_dialog_change_filter">Change filter</string>
+    <string name="retry_dialog_use_same_filter">Use same filter</string>
+    <string name="retry_method_title">Retake photos or use current ones?</string>
+    <string name="retry_method_retake">Retake photos</string>
+    <string name="retry_method_use_current">Use current photos</string>
+    <string name="retry_error_no_photos">No photos saved. Please retake the photos.</string>
+    <string name="retry_processing_title">Processing...</string>
+    <string name="retry_processing_message">Searching for new matches with existing photos...</string>
+    <string name="retry_no_results_title">No results</string>
+    <string name="retry_no_results_message">No more matches found. Try retaking photos or search manually.</string>
+    <string name="retry_error_title">Error</string>
+    <string name="retry_error_message">Error processing: %1$s</string>
+
+    <!-- Year Filter for Retry -->
+    <string name="year_filter_retry_title">Select year range</string>
+    <string name="year_filter_retry_all">All years (1968-2025)</string>
+    <string name="year_filter_retry_5">Last 5 years (2021-2025)</string>
+    <string name="year_filter_retry_10">Last 10 years (2016-2025)</string>
+    <string name="year_filter_retry_current">Current year (2024-2025) - Default</string>
+
+    <!-- CollectionActivity -->
+    <string name="title_my_collection">My Collection</string>
+    <string name="stat_total_items">Total Items</string>
+    <string name="stat_unique_models">Unique Models</string>
+    <string name="stat_favorites">Favorites</string>
+    <string name="empty_collection_title">No items in collection</string>
+    <string name="empty_collection_message">Start scanning cars to build your collection!</string>
+    <string name="content_description_hotwheels_car">Diecast car</string>
+    <string name="content_description_toggle_favorite">Toggle favorite</string>
+    <string name="quantity_label">x%1$d</string>
+    <string name="acquisition_date">Added: %1$s</string>
+
+    <!-- SettingsActivity -->
+    <string name="title_settings">Settings</string>
+    <string name="settings_collection_title">Collection Settings</string>
+    <string name="button_reset_collection">Reset Collection</string>
+    <string name="reset_collection_warning">This will permanently delete all items from your collection.</string>
+    <string name="settings_about_title">About</string>
+    <string name="app_version">Version 1.0</string>
+    <string name="app_description">Identify diecast model cars using computer vision and machine learning. This app is not affiliated with or endorsed by Mattel, Inc.</string>
+    <string name="reset_dialog_title">Reset Collection</string>
+    <string name="reset_dialog_message">Are you sure you want to delete ALL items from your collection?\n\nThis action cannot be undone.</string>
+    <string name="reset_dialog_confirm">Delete All</string>
+
+    <!-- ModelDetailsActivity -->
+    <string name="title_model_details">Model Details</string>
+    <string name="label_manufacturer">Manufacturer</string>
+    <string name="manufacturer_mattel">Mattel</string>
+    <string name="content_description_model_reference">Model reference image</string>
+    <string name="unknown_model">Unknown Model</string>
+
+    <!-- Manual Search Dialog -->
+    <string name="manual_search_title">Search Model</string>
+    <string name="manual_search_hint">Model name</string>
+    <string name="manual_search_example">Ex: Jeep Wrangler, Skull Crusher, etc.</string>
+    <string name="manual_search_button">Search</string>
+    <string name="manual_search_no_input">Enter a name to search</string>
+    <string name="manual_search_no_results">No models found with: \"%1$s\"</string>
+    <string name="manual_search_no_results_title">No results</string>
+    <string name="manual_search_no_results_message">No models found with: \"%1$s\"</string>
+
+    <!-- Search Results Dialog -->
+    <string name="search_results_title">Search results</string>
+    <string name="no_results_found">No results found</string>
+    <string name="button_none_match">None match</string>
+    <string name="series_unknown">Unknown series</string>
+
+    <!-- Common Buttons -->
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_apply">Apply</string>
+    <string name="button_search">Search</string>
+    <string name="button_close">Close</string>
+
+    <!-- Common Labels -->
+    <string name="model_name">Model Name:</string>
+    <string name="year">Year:</string>
+    <string name="series">Series:</string>
+    <string name="category">Category:</string>
+    <string name="confidence">Confidence:</string>
+
+    <!-- Messages and Toasts -->
+    <string name="scan_hotwheel">Scan Car</string>
+    <string name="camera_permission_required">Camera permission is required</string>
+    <string name="identifying">Identifying...</string>
+    <string name="no_hotwheel_found">No car detected</string>
+    <string name="try_again">Try Again</string>
+    <string name="save_to_collection">Save to Collection</string>
+    <string name="view_collection">View Collection</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="coming_soon">%1$s - Coming soon!</string>
+    <string name="error_message">Error: %1$s</string>
+
+    <!-- Feature Messages (from MainActivity) -->
+    <string name="message_camera_not_available">Camera functionality not available</string>
+    <string name="message_collection_not_available">Collection functionality not available</string>
+    <string name="message_settings_not_available">Settings not available</string>
+
+    <!-- Fix Corrupted Models (Hidden Feature) -->
+    <string name="fixing_corrupted_models">Fixing corrupted models...</string>
+    <string name="fixed_models_count">Fixed %1$d corrupted models</string>
+    <string name="no_corrupted_models">No corrupted models found</string>
+    <string name="error_fixing_models">Error fixing models: %1$s</string>
+
+    <!-- Ad Banner (Content Description) -->
+    <string name="content_description_ad_banner">Advertisement banner</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">Language</string>
+    <string name="settings_language_subtitle">App language</string>
+    <string name="language_english">English</string>
+    <string name="language_spanish">Español</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_dialog_title">Select Language</string>
+    <string name="language_changed">Language changed to %1$s</string>
+
+    <!-- Import/Export Collection -->
+    <string name="import_dialog_title">Import Collection</string>
+    <string name="import_dialog_message">This will import items as a separate collection.\nYour collection won\'t be modified.</string>
+    <string name="import_collection_name_hint">Collection Name (e.g., John\'s Collection)</string>
+    <string name="import_owner_name_hint">Collection Owner Name (optional)</string>
+    <string name="import_default_name">Friend\'s Collection</string>
+    <string name="import_button_select_file">Select File</string>
+    <string name="import_imported_collection">Imported Collection</string>
+
+    <!-- Exploration Activity -->
+    <string name="exploration_title">Image Exploration</string>
+    <string name="exploration_filter_by_year">Filter by year:</string>
+    <string name="exploration_all_years">All years</string>
+    <string name="exploration_sort_by_year">By Year</string>
+    <string name="exploration_sort_alphabetically">Alphabetically</string>
+    <string name="exploration_view_rotations">View Rotations</string>
+    <string name="exploration_total_images">Total: %1$d images</string>
+
+    <!-- Legal Disclaimers -->
+    <string name="legal_disclaimer_title">Legal Information</string>
+    <string name="legal_disclaimer_text">This app is an independent tool for identifying diecast model cars. It is not affiliated with, endorsed by, or sponsored by Mattel, Inc. or any other trademark owner.\n\n\"Hot Wheels\" is a registered trademark of Mattel, Inc. All trademarks belong to their respective owners.\n\nImages used in this app are sourced from the Hot Wheels Wiki (hotwheels.fandom.com) under the Creative Commons Attribution-Share Alike License. See https://www.fandom.com/licensing for details.\n\nThis app is for educational and informational purposes only.</string>
+    <string name="legal_button_view">View Legal Info</string>
+    <string name="legal_images_attribution">Images: © Hot Wheels Wiki (CC BY-SA)</string>
+
+    <!-- API Keys (configure these for price features) -->
+    <!-- Get free eBay API key at: https://developer.ebay.com/api-docs/developer-program -->
+    <string name="ebay_app_id" translatable="false">YOUR_EBAY_APP_ID_HERE</string>
+    <!-- Amazon requires affiliate account: https://affiliate-program.amazon.com/ -->
+    <string name="amazon_access_key" translatable="false">YOUR_AMAZON_ACCESS_KEY_HERE</string>
+
+    <!-- Price Dialog -->
+    <string name="price_dialog_title">Market Prices</string>
+    <string name="price_loading">Loading prices...</string>
+    <string name="price_no_internet">No internet connection</string>
+    <string name="price_error">Error loading prices</string>
+    <string name="price_not_available">Not available</string>
+    <string name="price_api_not_configured">API key not configured</string>
+    <string name="price_refresh">Refresh</string>
+
+    <!-- About Activity -->
+    <string name="title_about">About</string>
+    <string name="about_description">Car Identifier is the ultimate app for die-cast car collectors and enthusiasts. Using advanced AI image recognition technology, you can instantly identify Hot Wheels and other die-cast model cars from your collection.</string>
+    <string name="about_features_title">Features</string>
+    <string name="about_features">• Instant car identification with AI\n• Extensive database with thousands of models\n• Year filtering for faster searches\n• Personal collection management\n• Image exploration by year\n• Multi-language support (English, Spanish, Chinese)\n• Car of the Day feature</string>
+    <string name="about_developer_title">Developer</string>
+    <string name="about_developer">Developed by Digitizing Collections with passion for die-cast collectors worldwide.\n\nThis app uses MobileNetV3 neural network for accurate car recognition.\n\nContact: digitizingcollections@gmail.com</string>
+    <string name="about_privacy_policy">Privacy Policy</string>
+    <string name="about_licenses">Open Source Licenses</string>
+    <string name="about_copyright">© 2025 Car Identifier. All rights reserved.</string>
+</resources>

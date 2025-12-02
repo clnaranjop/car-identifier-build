@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_export"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="Export Collection"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/action_export_csv"
+                android:title="Export to CSV" />
+            <item
+                android:id="@+id/action_export_json"
+                android:title="Export to JSON" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_import"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:title="Import Collection"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_share"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="Share Collection"
+        app:showAsAction="ifRoom" />
+
+</menu>

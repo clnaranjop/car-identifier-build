@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/background_card"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/overlay_light">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Thumbnail Image with Frame -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardThumbnail"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/primary_orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imgThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/background_dark"
+                android:contentDescription="@string/content_description_hotwheels_car"
+                tools:src="@drawable/icon_car_orange" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Badge TH (Treasure Hunt) - Conditional -->
+        <TextView
+            android:id="@+id/badgeTH"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="TH"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_badge_th"
+            android:gravity="center"
+            android:elevation="4dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/cardThumbnail"
+            app:layout_constraintTop_toTopOf="@id/cardThumbnail"
+            android:layout_marginEnd="-6dp"
+            android:layout_marginTop="-6dp"
+            tools:visibility="visible" />
+
+        <!-- Badge STH (Super Treasure Hunt) - Conditional -->
+        <TextView
+            android:id="@+id/badgeSTH"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:text="STH"
+            android:textSize="9sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_badge_sth"
+            android:gravity="center"
+            android:elevation="4dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/cardThumbnail"
+            app:layout_constraintTop_toTopOf="@id/cardThumbnail"
+            android:layout_marginEnd="-8dp"
+            android:layout_marginTop="-8dp"
+            tools:visibility="gone" />
+
+        <!-- Model Name -->
+        <TextView
+            android:id="@+id/tvModelName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Skull Crusher"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:maxLines="2"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/cardThumbnail"
+            app:layout_constraintEnd_toStartOf="@id/btnFavorite"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            tools:text="Lamborghini Aventador LP 700-4" />
+
+        <!-- Year with Icon -->
+        <LinearLayout
+            android:id="@+id/layoutYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toEndOf="@id/cardThumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tvModelName"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📅"
+                android:textSize="12sp"
+                android:layout_marginEnd="4dp" />
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2024"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary_orange"
+                tools:text="2024" />
+
+        </LinearLayout>
+
+        <!-- Series -->
+        <TextView
+            android:id="@+id/tvSeries"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Treasure Hunt"
+            android:textSize="13sp"
+            android:textColor="@color/text_secondary"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toEndOf="@id/cardThumbnail"
+            app:layout_constraintEnd_toStartOf="@id/btnFavorite"
+            app:layout_constraintTop_toBottomOf="@id/layoutYear"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="8dp"
+            tools:text="HW Treasure Hunt" />
+
+        <!-- Rarity Label -->
+        <TextView
+            android:id="@+id/tvRarityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rarity:"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            app:layout_constraintStart_toEndOf="@id/cardThumbnail"
+            app:layout_constraintTop_toBottomOf="@id/tvSeries"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp" />
+
+        <!-- Rarity Stars -->
+        <LinearLayout
+            android:id="@+id/layoutRarity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintStart_toEndOf="@id/tvRarityLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvSeries"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp">
+            <!-- Populated dynamically with ImageViews -->
+        </LinearLayout>
+
+        <!-- Quantity Badge (Conditional - Only if > 1) -->
+        <TextView
+            android:id="@+id/tvQuantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="x2"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/bg_quantity_badge"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp"
+            android:elevation="2dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/cardThumbnail"
+            app:layout_constraintBottom_toBottomOf="@id/cardThumbnail"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="4dp"
+            tools:visibility="visible"
+            tools:text="x3" />
+
+        <!-- Favorite Button -->
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_favorite_border"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/content_description_toggle_favorite"
+            app:tint="@color/error"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Acquisition Date (Bottom) -->
+        <TextView
+            android:id="@+id/tvAcquiredDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Adquirido: 20 Oct 2025"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@id/cardThumbnail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutRarity"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="12dp"
+            tools:text="Added: Oct 20, 2025" />
+
+        <!-- View Prices Button - REMOVED (shopping not available from collection) -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

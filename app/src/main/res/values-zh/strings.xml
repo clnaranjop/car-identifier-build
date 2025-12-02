@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App General -->
+    <string name="app_name">压铸车识别器</string>
+    <string name="app_tagline">即时识别压铸模型车</string>
+
+    <!-- MainActivity -->
+    <string name="car_of_the_day">每日汽车</string>
+    <string name="button_identify_with_camera">用相机识别</string>
+    <string name="button_search_by_name">按名称搜索</string>
+    <string name="stat_scanned">已扫描</string>
+    <string name="stat_collection">收藏</string>
+    <string name="stat_models">型号</string>
+
+    <!-- CameraActivity -->
+    <string name="camera_title">将相机对准压铸车</string>
+    <string name="take_photo">拍照</string>
+    <string name="photo_progress">照片 %1$d / %2$d</string>
+    <string name="angle_side_right">右侧视图</string>
+    <string name="angle_side_left">左侧视图</string>
+    <string name="angle_front_45">45° 右前视图</string>
+    <string name="angle_back_34">3/4 右后视图</string>
+    <string name="guidance_position">将压铸车放在画面中</string>
+    <string name="processing_multi_images">处理 %1$d 张照片</string>
+    <string name="processing_multi_images_with_filter">处理 %1$d 张照片（年份 %2$d-%3$d）</string>
+    <string name="processing_image">处理图像中...</string>
+    <string name="photo_captured">照片 %1$d/%2$d 已捕获。下一个角度...</string>
+    <string name="failed_to_capture">拍照失败</string>
+    <string name="failed_to_start_camera">启动相机失败</string>
+    <string name="failed_to_bind_camera">绑定相机失败</string>
+    <string name="failed_to_process_image">处理选定图像失败</string>
+    <string name="content_description_back">返回</string>
+    <string name="content_description_flash">闪光灯</string>
+    <string name="content_description_year_filter">年份筛选</string>
+    <string name="content_description_gallery">图库</string>
+    <string name="content_description_switch_camera">切换相机</string>
+    <string name="content_description_angle_example">角度示例</string>
+
+    <!-- Year Filter Dialog -->
+    <string name="year_filter_title">按年份筛选</string>
+    <string name="year_filter_current">当前筛选：%1$d-%2$d</string>
+    <string name="year_filter_no_filter">无筛选（所有年份）</string>
+    <string name="year_filter_select_range">选择范围：</string>
+    <string name="year_filter_all_years">所有年份（1968-2024）</string>
+    <string name="year_filter_last_5">最近 5 年（2020-2024）- 快速</string>
+    <string name="year_filter_last_10">最近 10 年（2015-2024）- 推荐</string>
+    <string name="year_filter_last_20">最近 20 年（2005-2024）</string>
+    <string name="year_filter_custom">自定义范围...</string>
+    <string name="year_filter_applied">已应用筛选：%1$d-%2$d</string>
+    <string name="year_filter_all_applied">搜索所有年份（%1$d 个型号）</string>
+    <string name="year_filter_custom_title">自定义范围</string>
+    <string name="year_filter_custom_message">输入年份范围（例如：2010-2020）：</string>
+    <string name="year_filter_custom_hint">例：2010-2020</string>
+    <string name="year_filter_invalid_format">格式无效。使用：YYYY-YYYY</string>
+
+    <!-- Result Dialog -->
+    <string name="result_dialog_title">识别结果</string>
+    <string name="result_identified">型号已识别！</string>
+    <string name="result_model">型号：%1$s</string>
+    <string name="result_confidence">置信度：%1$d%%</string>
+    <string name="result_series">系列：%1$s</string>
+    <string name="result_year_label">年份：%1$d</string>
+    <string name="result_category">类别：%1$s</string>
+    <string name="result_rarity">稀有度：%1$s</string>
+    <string name="result_detected">检测到型号！</string>
+    <string name="result_not_detected">未检测到型号</string>
+    <string name="result_low_confidence">置信度非常低：%1$d%%</string>
+    <string name="button_scan_another">扫描另一个</string>
+    <string name="button_back">返回</string>
+
+    <!-- ResultActivity -->
+    <string name="title_identification_result">识别结果</string>
+    <string name="label_your_photo">您的照片</string>
+    <string name="label_reference">参考</string>
+    <string name="content_description_captured_image">捕获的汽车图像</string>
+    <string name="content_description_reference_image">数据库参考图像</string>
+    <string name="retry_suggestion">尝试在更好的光线下拍摄更清晰的照片</string>
+    <string name="button_share_result">分享结果</string>
+    <string name="share_result_text_identified">我使用压铸车识别器以 %1$d%% 的置信度识别了这辆压铸车！</string>
+    <string name="share_result_text_unidentified">我用压铸车识别器扫描了这辆车 - 你能帮忙识别吗？</string>
+    <string name="share_result_title">分享结果</string>
+    <string name="message_failed_to_share">分享结果失败</string>
+    <string name="message_cannot_save_unidentified">无法保存未识别的物品</string>
+
+    <!-- SelectResultActivity -->
+    <string name="title_select_your_hotwheels">选择您的汽车</string>
+    <string name="question_which_is_your_car">哪一个是您的汽车？</string>
+    <string name="instruction_select_best_match">选择最匹配的型号</string>
+    <string name="content_description_captured_image_label">捕获的图像</string>
+    <string name="button_retry_same_car">用同一辆车重试</string>
+    <string name="button_try_different_car">尝试另一辆车</string>
+    <string name="button_manual_search">手动输入名称</string>
+    <string name="rank_label">#%1$d</string>
+    <string name="content_description_model_image">型号图像</string>
+    <string name="confidence_match">%1$d%% 匹配</string>
+    <string name="button_choose">选择</string>
+
+    <!-- Retry Dialog -->
+    <string name="retry_dialog_title">重试</string>
+    <string name="retry_dialog_message">%1$s\n\n您想在再次搜索之前更改年份范围吗？</string>
+    <string name="retry_dialog_change_filter">更改筛选</string>
+    <string name="retry_dialog_use_same_filter">使用相同筛选</string>
+    <string name="retry_method_title">重新拍照还是使用当前照片？</string>
+    <string name="retry_method_retake">重新拍照</string>
+    <string name="retry_method_use_current">使用当前照片</string>
+    <string name="retry_error_no_photos">没有保存的照片。请重新拍照。</string>
+    <string name="retry_processing_title">处理中...</string>
+    <string name="retry_processing_message">使用现有照片搜索新匹配项...</string>
+    <string name="retry_no_results_title">无结果</string>
+    <string name="retry_no_results_message">找不到更多匹配项。尝试重新拍照或手动搜索。</string>
+    <string name="retry_error_title">错误</string>
+    <string name="retry_error_message">处理错误：%1$s</string>
+
+    <!-- Year Filter for Retry -->
+    <string name="year_filter_retry_title">选择年份范围</string>
+    <string name="year_filter_retry_all">所有年份（1968-2025）</string>
+    <string name="year_filter_retry_5">最近 5 年（2021-2025）</string>
+    <string name="year_filter_retry_10">最近 10 年（2016-2025）</string>
+    <string name="year_filter_retry_current">当前年份（2024-2025）- 默认</string>
+
+    <!-- CollectionActivity -->
+    <string name="title_my_collection">我的收藏</string>
+    <string name="stat_total_items">总物品</string>
+    <string name="stat_unique_models">独特型号</string>
+    <string name="stat_favorites">收藏夹</string>
+    <string name="empty_collection_title">收藏中没有物品</string>
+    <string name="empty_collection_message">开始扫描汽车以建立您的收藏！</string>
+    <string name="content_description_hotwheels_car">压铸车</string>
+    <string name="content_description_toggle_favorite">切换收藏</string>
+    <string name="quantity_label">x%1$d</string>
+    <string name="acquisition_date">添加：%1$s</string>
+
+    <!-- SettingsActivity -->
+    <string name="title_settings">设置</string>
+    <string name="settings_collection_title">收藏设置</string>
+    <string name="button_reset_collection">重置收藏</string>
+    <string name="reset_collection_warning">这将永久删除您收藏中的所有物品。</string>
+    <string name="settings_about_title">关于</string>
+    <string name="app_version">版本 1.0</string>
+    <string name="app_description">使用计算机视觉和机器学习识别压铸模型车。此应用程序与 Mattel, Inc. 没有关联或认可。</string>
+    <string name="reset_dialog_title">重置收藏</string>
+    <string name="reset_dialog_message">您确定要删除收藏中的所有物品吗？\n\n此操作无法撤销。</string>
+    <string name="reset_dialog_confirm">全部删除</string>
+
+    <!-- ModelDetailsActivity -->
+    <string name="title_model_details">型号详情</string>
+    <string name="label_manufacturer">制造商</string>
+    <string name="manufacturer_mattel">美泰</string>
+    <string name="content_description_model_reference">型号参考图像</string>
+    <string name="unknown_model">未知型号</string>
+
+    <!-- Manual Search Dialog -->
+    <string name="manual_search_title">搜索型号</string>
+    <string name="manual_search_hint">型号名称</string>
+    <string name="manual_search_example">例：Jeep Wrangler、Skull Crusher 等</string>
+    <string name="manual_search_button">搜索</string>
+    <string name="manual_search_no_input">输入名称进行搜索</string>
+    <string name="manual_search_no_results">未找到型号："%1$s"</string>
+    <string name="manual_search_no_results_title">无结果</string>
+    <string name="manual_search_no_results_message">未找到型号："%1$s"</string>
+
+    <!-- Search Results Dialog -->
+    <string name="search_results_title">搜索结果</string>
+    <string name="no_results_found">未找到结果</string>
+    <string name="button_none_match">都不匹配</string>
+    <string name="series_unknown">未知系列</string>
+
+    <!-- Common Buttons -->
+    <string name="button_ok">确定</string>
+    <string name="button_cancel">取消</string>
+    <string name="button_apply">应用</string>
+    <string name="button_search">搜索</string>
+    <string name="button_close">关闭</string>
+
+    <!-- Common Labels -->
+    <string name="model_name">型号名称：</string>
+    <string name="year">年份：</string>
+    <string name="series">系列：</string>
+    <string name="category">类别：</string>
+    <string name="confidence">置信度：</string>
+
+    <!-- Messages and Toasts -->
+    <string name="scan_hotwheel">扫描汽车</string>
+    <string name="camera_permission_required">需要相机权限</string>
+    <string name="identifying">识别中...</string>
+    <string name="no_hotwheel_found">未检测到汽车</string>
+    <string name="try_again">重试</string>
+    <string name="save_to_collection">保存到收藏</string>
+    <string name="view_collection">查看收藏</string>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="coming_soon">%1$s - 即将推出！</string>
+    <string name="error_message">错误：%1$s</string>
+
+    <!-- Feature Messages (from MainActivity) -->
+    <string name="message_camera_not_available">相机功能不可用</string>
+    <string name="message_collection_not_available">收藏功能不可用</string>
+    <string name="message_settings_not_available">设置不可用</string>
+
+    <!-- Fix Corrupted Models (Hidden Feature) -->
+    <string name="fixing_corrupted_models">修复损坏的型号...</string>
+    <string name="fixed_models_count">修复了 %1$d 个损坏的型号</string>
+    <string name="no_corrupted_models">未找到损坏的型号</string>
+    <string name="error_fixing_models">修复型号时出错：%1$s</string>
+
+    <!-- Ad Banner (Content Description) -->
+    <string name="content_description_ad_banner">广告横幅</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">语言</string>
+    <string name="settings_language_subtitle">应用语言</string>
+    <string name="language_english">English</string>
+    <string name="language_spanish">Español</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_dialog_title">选择语言</string>
+    <string name="language_changed">语言已更改为 %1$s</string>
+
+    <!-- Import/Export Collection -->
+    <string name="import_dialog_title">导入收藏</string>
+    <string name="import_dialog_message">这将导入项目作为单独的收藏。\n您的收藏不会被修改。</string>
+    <string name="import_collection_name_hint">收藏名称（例：小明的收藏）</string>
+    <string name="import_owner_name_hint">收藏所有者名称（可选）</string>
+    <string name="import_default_name">朋友的收藏</string>
+    <string name="import_button_select_file">选择文件</string>
+    <string name="import_imported_collection">已导入收藏</string>
+
+    <!-- Legal Disclaimers -->
+    <string name="legal_disclaimer_title">法律信息</string>
+    <string name="legal_disclaimer_text">此应用程序是用于识别压铸模型车的独立工具。它与 Mattel, Inc. 或任何其他商标所有者没有关联、认可或赞助。\n\n"Hot Wheels"是 Mattel, Inc. 的注册商标。所有商标归各自所有者所有。\n\n此应用程序中使用的图像来自 Hot Wheels Wiki (hotwheels.fandom.com)，根据知识共享署名-相同方式共享许可。详情请参见 https://www.fandom.com/licensing。\n\n此应用程序仅用于教育和信息目的。</string>
+    <string name="legal_button_view">查看法律信息</string>
+    <string name="legal_images_attribution">图像：© Hot Wheels Wiki (CC BY-SA)</string>
+</resources>

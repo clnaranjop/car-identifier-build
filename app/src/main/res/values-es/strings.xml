@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App General -->
+    <string name="app_name">Car Identifier</string>
+    <string name="app_tagline">Identifica autos de colección al instante</string>
+
+    <!-- MainActivity -->
+    <string name="car_of_the_day">Auto del Día</string>
+    <string name="button_identify_with_camera">Identificar con cámara</string>
+    <string name="button_search_by_name">Buscar por nombre</string>
+    <string name="stat_scanned">Escaneados</string>
+    <string name="stat_collection">Colección</string>
+    <string name="stat_models">Modelos</string>
+
+    <!-- CameraActivity -->
+    <string name="camera_title">Apunta la cámara al auto de colección</string>
+    <string name="take_photo">Tomar Foto</string>
+    <string name="photo_progress">Foto %1$d de %2$d</string>
+    <string name="angle_side_right">📸 Foto 1: Lado derecho (perfil completo)</string>
+    <string name="angle_side_left">📸 Foto 2: Lado izquierdo (perfil completo)</string>
+    <string name="angle_front_45">📸 Foto 3: Esquina frontal (45° - ve frente + lado)</string>
+    <string name="angle_back_34">📸 Foto 4: Esquina trasera (45° - ve trasera + lado)</string>
+    <string name="guidance_position">📍 Coloca el auto dentro del recuadro</string>
+    <string name="processing_multi_images">Procesando %1$d fotos</string>
+    <string name="processing_multi_images_with_filter">Procesando %1$d fotos (años %2$d-%3$d)</string>
+    <string name="processing_image">Procesando imagen...</string>
+    <string name="photo_captured">Foto %1$d/%2$d capturada. Siguiente ángulo...</string>
+    <string name="failed_to_capture">Error al capturar foto</string>
+    <string name="failed_to_start_camera">Error al iniciar cámara</string>
+    <string name="failed_to_bind_camera">Error al vincular cámara</string>
+    <string name="failed_to_process_image">Error al procesar imagen seleccionada</string>
+    <string name="content_description_back">Atrás</string>
+    <string name="content_description_flash">Flash</string>
+    <string name="content_description_year_filter">Filtro de Año</string>
+    <string name="content_description_gallery">Galería</string>
+    <string name="content_description_switch_camera">Cambiar Cámara</string>
+    <string name="content_description_angle_example">Ejemplo de ángulo</string>
+
+    <!-- Year Filter Dialog -->
+    <string name="year_filter_title">Filtrar por año</string>
+    <string name="year_filter_current">Filtro actual: %1$d-%2$d</string>
+    <string name="year_filter_no_filter">Sin filtro (todos los años)</string>
+    <string name="year_filter_select_range">Selecciona un rango:</string>
+    <string name="year_filter_all_years">Todos los años (1968-2024)</string>
+    <string name="year_filter_last_5">Últimos 5 años (2020-2024) - Rápido</string>
+    <string name="year_filter_last_10">Últimos 10 años (2015-2024) - Recomendado</string>
+    <string name="year_filter_last_20">Últimos 20 años (2005-2024)</string>
+    <string name="year_filter_custom">Rango personalizado...</string>
+    <string name="year_filter_applied">Filtro aplicado: %1$d-%2$d</string>
+    <string name="year_filter_all_applied">Buscando en todos los años (%1$d modelos)</string>
+    <string name="year_filter_custom_title">Rango personalizado</string>
+    <string name="year_filter_custom_message">Ingresa el rango de años (ej: 2010-2020):</string>
+    <string name="year_filter_custom_hint">Ej: 2010-2020</string>
+    <string name="year_filter_invalid_format">Formato inválido. Usa: AAAA-AAAA</string>
+
+    <!-- Result Dialog -->
+    <string name="result_dialog_title">Resultado de Identificación</string>
+    <string name="result_identified">¡Modelo Identificado!</string>
+    <string name="result_model">Modelo: %1$s</string>
+    <string name="result_confidence">Confianza: %1$d%%</string>
+    <string name="result_series">Serie: %1$s</string>
+    <string name="result_year_label">Año: %1$d</string>
+    <string name="result_category">Categoría: %1$s</string>
+    <string name="result_rarity">Rareza: %1$s</string>
+    <string name="result_detected">¡Modelo detectado!</string>
+    <string name="result_not_detected">No se detectó ningún modelo</string>
+    <string name="result_low_confidence">Confianza muy baja: %1$d%%</string>
+    <string name="button_scan_another">Escanear Otro</string>
+    <string name="button_back">Volver</string>
+
+    <!-- ResultActivity -->
+    <string name="title_identification_result">Resultado de Identificación</string>
+    <string name="label_your_photo">Tu foto</string>
+    <string name="label_reference">Referencia</string>
+    <string name="content_description_captured_image">Imagen capturada del auto</string>
+    <string name="content_description_reference_image">Imagen de referencia de la base de datos</string>
+    <string name="retry_suggestion">Intenta tomar una foto más clara con mejor iluminación</string>
+    <string name="button_share_result">Compartir Resultado</string>
+    <string name="share_result_text_identified">¡Identifiqué este auto de colección con %1$d%% de confianza usando Identificador de Autos de Colección!</string>
+    <string name="share_result_text_unidentified">Escaneé este auto con Identificador de Autos de Colección - ¿puedes ayudarme a identificarlo?</string>
+    <string name="share_result_title">Compartir Resultado</string>
+    <string name="message_failed_to_share">Error al compartir resultado</string>
+    <string name="message_cannot_save_unidentified">No se puede guardar un artículo no identificado</string>
+
+    <!-- SelectResultActivity -->
+    <string name="title_select_your_hotwheels">Resultados</string>
+    <string name="question_which_is_your_car">¿Cuál es tu auto?</string>
+    <string name="instruction_select_best_match">Selecciona el modelo que coincida mejor</string>
+    <string name="content_description_captured_image_label">Imagen capturada</string>
+    <string name="button_retry_same_car">Volver a intentar con el mismo auto</string>
+    <string name="button_try_different_car">Intentar con otro auto</string>
+    <string name="button_manual_search">Ingresar nombre manualmente</string>
+    <string name="rank_label">#%1$d</string>
+    <string name="content_description_model_image">Imagen del modelo</string>
+    <string name="confidence_match">%1$d%% coincide</string>
+    <string name="button_choose">Elegir</string>
+
+    <!-- Retry Dialog -->
+    <string name="retry_dialog_title">Volver a intentar</string>
+    <string name="retry_dialog_message">%1$s\n\n¿Deseas cambiar el rango de años antes de buscar de nuevo?</string>
+    <string name="retry_dialog_change_filter">Cambiar filtro</string>
+    <string name="retry_dialog_use_same_filter">Usar mismo filtro</string>
+    <string name="retry_method_title">¿Retomar fotos o usar las actuales?</string>
+    <string name="retry_method_retake">Retomar fotos</string>
+    <string name="retry_method_use_current">Usar fotos actuales</string>
+    <string name="retry_error_no_photos">No hay fotos guardadas. Por favor retoma las fotos.</string>
+    <string name="retry_processing_title">Procesando...</string>
+    <string name="retry_processing_message">Buscando nuevas coincidencias con las fotos existentes...</string>
+    <string name="retry_no_results_title">Sin resultados</string>
+    <string name="retry_no_results_message">No se encontraron más coincidencias. Intenta retomar las fotos o buscar manualmente.</string>
+    <string name="retry_error_title">Error</string>
+    <string name="retry_error_message">Error al procesar: %1$s</string>
+
+    <!-- Year Filter for Retry -->
+    <string name="year_filter_retry_title">Seleccionar rango de años</string>
+    <string name="year_filter_retry_all">Todos los años (1968-2025)</string>
+    <string name="year_filter_retry_5">Últimos 5 años (2021-2025)</string>
+    <string name="year_filter_retry_10">Últimos 10 años (2016-2025)</string>
+    <string name="year_filter_retry_current">Año actual (2024-2025) - Por defecto</string>
+
+    <!-- CollectionActivity -->
+    <string name="title_my_collection">Mi Colección</string>
+    <string name="stat_total_items">Total de Artículos</string>
+    <string name="stat_unique_models">Modelos Únicos</string>
+    <string name="stat_favorites">Favoritos</string>
+    <string name="empty_collection_title">No hay artículos en la colección</string>
+    <string name="empty_collection_message">¡Comienza a escanear autos para construir tu colección!</string>
+    <string name="content_description_hotwheels_car">Auto de colección</string>
+    <string name="content_description_toggle_favorite">Alternar favorito</string>
+    <string name="quantity_label">x%1$d</string>
+    <string name="acquisition_date">Agregado: %1$s</string>
+
+    <!-- SettingsActivity -->
+    <string name="title_settings">Configuración</string>
+    <string name="settings_collection_title">Configuración de Colección</string>
+    <string name="button_reset_collection">Reiniciar Colección</string>
+    <string name="reset_collection_warning">Esto eliminará permanentemente todos los artículos de tu colección.</string>
+    <string name="settings_about_title">Acerca de</string>
+    <string name="app_version">Versión 1.0</string>
+    <string name="app_description">Identifica autos de colección usando visión por computadora y aprendizaje automático. Esta app no está afiliada ni respaldada por Mattel, Inc.</string>
+    <string name="reset_dialog_title">Reiniciar Colección</string>
+    <string name="reset_dialog_message">¿Estás seguro de que quieres eliminar TODOS los artículos de tu colección?\n\nEsta acción no se puede deshacer.</string>
+    <string name="reset_dialog_confirm">Eliminar Todo</string>
+
+    <!-- ModelDetailsActivity -->
+    <string name="title_model_details">Detalles del Modelo</string>
+    <string name="label_manufacturer">Fabricante</string>
+    <string name="manufacturer_mattel">Mattel</string>
+    <string name="content_description_model_reference">Imagen de referencia del modelo</string>
+    <string name="unknown_model">Modelo Desconocido</string>
+
+    <!-- Manual Search Dialog -->
+    <string name="manual_search_title">Buscar Modelo</string>
+    <string name="manual_search_hint">Nombre del modelo</string>
+    <string name="manual_search_example">Ej: Jeep Wrangler, Skull Crusher, etc.</string>
+    <string name="manual_search_button">Buscar</string>
+    <string name="manual_search_no_input">Ingresa un nombre para buscar</string>
+    <string name="manual_search_no_results">No se encontraron modelos con: \"%1$s\"</string>
+    <string name="manual_search_no_results_title">Sin resultados</string>
+    <string name="manual_search_no_results_message">No se encontraron modelos con: \"%1$s\"</string>
+
+    <!-- Search Results Dialog -->
+    <string name="search_results_title">Resultados de búsqueda</string>
+    <string name="no_results_found">No se encontraron resultados</string>
+    <string name="button_none_match">Ninguno coincide</string>
+    <string name="series_unknown">Serie desconocida</string>
+
+    <!-- Common Buttons -->
+    <string name="button_ok">Aceptar</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_apply">Aplicar</string>
+    <string name="button_search">Buscar</string>
+    <string name="button_close">Cerrar</string>
+
+    <!-- Common Labels -->
+    <string name="model_name">Nombre del Modelo:</string>
+    <string name="year">Año:</string>
+    <string name="series">Serie:</string>
+    <string name="category">Categoría:</string>
+    <string name="confidence">Confianza:</string>
+
+    <!-- Messages and Toasts -->
+    <string name="scan_hotwheel">Escanear Auto</string>
+    <string name="camera_permission_required">Se requiere permiso de cámara</string>
+    <string name="identifying">Identificando...</string>
+    <string name="no_hotwheel_found">No se detectó ningún auto</string>
+    <string name="try_again">Intentar de Nuevo</string>
+    <string name="save_to_collection">Guardar en Colección</string>
+    <string name="view_collection">Ver Colección</string>
+    <string name="settings">Configuración</string>
+    <string name="about">Acerca de</string>
+    <string name="coming_soon">%1$s - ¡Próximamente!</string>
+    <string name="error_message">Error: %1$s</string>
+
+    <!-- Feature Messages (from MainActivity) -->
+    <string name="message_camera_not_available">Funcionalidad de cámara no disponible</string>
+    <string name="message_collection_not_available">Funcionalidad de colección no disponible</string>
+    <string name="message_settings_not_available">Configuración no disponible</string>
+
+    <!-- Fix Corrupted Models (Hidden Feature) -->
+    <string name="fixing_corrupted_models">Reparando modelos corruptos...</string>
+    <string name="fixed_models_count">Se repararon %1$d modelos corruptos</string>
+    <string name="no_corrupted_models">No se encontraron modelos corruptos</string>
+    <string name="error_fixing_models">Error al reparar modelos: %1$s</string>
+
+    <!-- Ad Banner (Content Description) -->
+    <string name="content_description_ad_banner">Banner de anuncio</string>
+
+    <!-- Language Settings -->
+    <string name="settings_language_title">Idioma</string>
+    <string name="settings_language_subtitle">Idioma de la aplicación</string>
+    <string name="language_english">English</string>
+    <string name="language_spanish">Español</string>
+    <string name="language_chinese">中文</string>
+    <string name="language_dialog_title">Seleccionar Idioma</string>
+    <string name="language_changed">Idioma cambiado a %1$s</string>
+
+    <!-- Import/Export Collection -->
+    <string name="import_dialog_title">Importar Colección</string>
+    <string name="import_dialog_message">Esto importará los elementos como una colección separada.\nTu colección no será modificada.</string>
+    <string name="import_collection_name_hint">Nombre de la Colección (ej: Colección de Juan)</string>
+    <string name="import_owner_name_hint">Nombre del Propietario (opcional)</string>
+    <string name="import_default_name">Colección de Amigo</string>
+    <string name="import_button_select_file">Seleccionar Archivo</string>
+    <string name="import_imported_collection">Colección Importada</string>
+
+    <!-- Exploration Activity -->
+    <string name="exploration_title">Exploración de Imágenes</string>
+    <string name="exploration_filter_by_year">Filtrar por año:</string>
+    <string name="exploration_all_years">Todos los años</string>
+    <string name="exploration_sort_by_year">Por Año</string>
+    <string name="exploration_sort_alphabetically">Alfabético</string>
+    <string name="exploration_view_rotations">Ver Rotaciones</string>
+    <string name="exploration_total_images">Total: %1$d imágenes</string>
+
+    <!-- Legal Disclaimers -->
+    <string name="legal_disclaimer_title">Información Legal</string>
+    <string name="legal_disclaimer_text">Esta aplicación es una herramienta independiente para identificar autos de colección. No está afiliada, respaldada ni patrocinada por Mattel, Inc. ni ningún otro propietario de marca registrada.\n\n\"Hot Wheels\" es una marca registrada de Mattel, Inc. Todas las marcas pertenecen a sus respectivos dueños.\n\nLas imágenes usadas en esta app provienen de Hot Wheels Wiki (hotwheels.fandom.com) bajo la licencia Creative Commons Attribution-Share Alike. Ver https://www.fandom.com/licensing para detalles.\n\nEsta aplicación es solo para fines educativos e informativos.</string>
+    <string name="legal_button_view">Ver Información Legal</string>
+    <string name="legal_images_attribution">Imágenes: © Hot Wheels Wiki (CC BY-SA)</string>
+
+    <!-- About Activity -->
+    <string name="title_about">Acerca de</string>
+    <string name="about_description">Car Identifier es la aplicación definitiva para coleccionistas y entusiastas de autos de colección. Usando tecnología avanzada de reconocimiento de imágenes con IA, puedes identificar instantáneamente Hot Wheels y otros modelos de autos de tu colección.</string>
+    <string name="about_features_title">Características</string>
+    <string name="about_features">• Identificación instantánea con IA\n• Base de datos extensa con miles de modelos\n• Filtrado por año para búsquedas rápidas\n• Gestión de colección personal\n• Exploración de imágenes por año\n• Soporte multi-idioma (Inglés, Español, Chino)\n• Auto del Día</string>
+    <string name="about_developer_title">Desarrollador</string>
+    <string name="about_developer">Desarrollado por Digitizing Collections con pasión para coleccionistas de autos en todo el mundo.\n\nEsta app usa la red neuronal MobileNetV3 para reconocimiento preciso de autos.\n\nContacto: digitizingcollections@gmail.com</string>
+    <string name="about_privacy_policy">Política de Privacidad</string>
+    <string name="about_licenses">Licencias de Código Abierto</string>
+    <string name="about_copyright">© 2025 Car Identifier. Todos los derechos reservados.</string>
+</resources>

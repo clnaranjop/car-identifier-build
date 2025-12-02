@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Badge para Super Treasure Hunt (STH) - Dorado con llamas -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Círculo dorado de fondo -->
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:angle="135"
+                android:startColor="#FFD700"
+                android:centerColor="#FFC107"
+                android:endColor="#FF9800"
+                android:type="linear" />
+
+            <stroke
+                android:width="2dp"
+                android:color="#FF6B35" />
+
+            <size
+                android:width="36dp"
+                android:height="36dp" />
+        </shape>
+    </item>
+
+    <!-- Efecto de brillo -->
+    <item
+        android:top="2dp"
+        android:left="2dp"
+        android:right="2dp"
+        android:bottom="18dp">
+        <shape android:shape="oval">
+            <solid android:color="#40FFFFFF" />
+        </shape>
+    </item>
+
+</layer-list>

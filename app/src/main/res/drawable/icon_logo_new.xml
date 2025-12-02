@@ -1,0 +1,85 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Background Circle -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M60,10 A50,50 0 1,1 60,110 A50,50 0 1,1 60,10 Z"
+        android:fillAlpha="0.1"/>
+
+    <!-- Car Body -->
+    <path
+        android:fillColor="#FF6B35"
+        android:pathData="M35,55 L40,45 L55,40 L75,40 L85,45 L90,55 L90,70 L85,75 L35,75 L30,70 Z"/>
+
+    <!-- Car Window -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M45,45 L55,42 L70,42 L78,45 L75,52 L50,52 Z"
+        android:fillAlpha="0.9"/>
+
+    <!-- Front Wheel -->
+    <path
+        android:fillColor="#2C3E50"
+        android:pathData="M42,70 A8,8 0 1,1 42,70.1 Z"/>
+    <path
+        android:fillColor="#95A5A6"
+        android:pathData="M42,70 A4,4 0 1,1 42,70.1 Z"/>
+
+    <!-- Back Wheel -->
+    <path
+        android:fillColor="#2C3E50"
+        android:pathData="M78,70 A8,8 0 1,1 78,70.1 Z"/>
+    <path
+        android:fillColor="#95A5A6"
+        android:pathData="M78,70 A4,4 0 1,1 78,70.1 Z"/>
+
+    <!-- Scan Lines Effect -->
+    <path
+        android:strokeColor="#00D9FF"
+        android:strokeWidth="1.5"
+        android:strokeAlpha="0.7"
+        android:pathData="M20,30 L100,30"/>
+    <path
+        android:strokeColor="#00D9FF"
+        android:strokeWidth="1.5"
+        android:strokeAlpha="0.5"
+        android:pathData="M20,50 L100,50"/>
+    <path
+        android:strokeColor="#00D9FF"
+        android:strokeWidth="1.5"
+        android:strokeAlpha="0.7"
+        android:pathData="M20,85 L100,85"/>
+
+    <!-- Corner Brackets (Scanner Frame) -->
+    <!-- Top Left -->
+    <path
+        android:strokeColor="#00D9FF"
+        android:strokeWidth="2"
+        android:pathData="M25,25 L25,35 M25,25 L35,25"/>
+    <!-- Top Right -->
+    <path
+        android:strokeColor="#00D9FF"
+        android:strokeWidth="2"
+        android:pathData="M95,25 L95,35 M95,25 L85,25"/>
+    <!-- Bottom Left -->
+    <path
+        android:strokeColor="#00D9FF"
+        android:strokeWidth="2"
+        android:pathData="M25,95 L25,85 M25,95 L35,95"/>
+    <!-- Bottom Right -->
+    <path
+        android:strokeColor="#00D9FF"
+        android:strokeWidth="2"
+        android:pathData="M95,95 L95,85 M95,95 L85,95"/>
+
+    <!-- AI Sparkle Effect -->
+    <path
+        android:fillColor="#FFD700"
+        android:pathData="M90,25 L92,28 L95,26 L93,29 L96,31 L93,31 L92,34 L91,31 L88,31 L90,29 Z"
+        android:fillAlpha="0.8"/>
+
+</vector>

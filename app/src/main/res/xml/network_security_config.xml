@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow cleartext traffic for API endpoints -->
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">api.mercadolibre.com</domain>
+        <domain includeSubdomains="true">svcs.ebay.com</domain>
+    </domain-config>
+</network-security-config>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Semi-transparent background -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#66000000" />
+        </shape>
+    </item>
+
+    <!-- Clear center area -->
+    <item android:gravity="center">
+        <shape android:shape="rectangle">
+            <size android:width="280dp" android:height="180dp" />
+            <stroke android:width="2dp" android:color="@color/white" />
+            <corners android:radius="8dp" />
+        </shape>
+    </item>
+</layer-list>

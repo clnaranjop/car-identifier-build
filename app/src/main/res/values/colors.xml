@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material Design 3 - Default colors -->
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Modern HotWheels Theme - Primary Colors -->
+    <color name="primary_orange">#FF6B35</color>
+    <color name="primary_orange_dark">#E64A19</color>
+    <color name="primary_orange_light">#FF8A50</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary_blue">#0A1929</color>
+    <color name="secondary_blue_light">#1A2332</color>
+    <color name="secondary_blue_lighter">#2A3342</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_cyan">#00BCD4</color>
+    <color name="accent_cyan_light">#26C6DA</color>
+
+    <!-- Background Colors - Dark Theme -->
+    <color name="background_dark">#121212</color>
+    <color name="background_dark_elevated">#1E1E1E</color>
+    <color name="background_card">#2C2C2C</color>
+    <color name="background_card_elevated">#383838</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0BEC5</color>
+    <color name="text_tertiary">#78909C</color>
+    <color name="text_disabled">#546E7A</color>
+
+    <!-- Status Colors -->
+    <color name="success">#4CAF50</color>
+    <color name="success_light">#66BB6A</color>
+    <color name="error">#F44336</color>
+    <color name="error_light">#EF5350</color>
+    <color name="warning">#FF9800</color>
+    <color name="info">#2196F3</color>
+
+    <!-- Gradient Colors -->
+    <color name="gradient_start">#0A1929</color>
+    <color name="gradient_end">#FF6B35</color>
+    <color name="gradient_overlay">#80000000</color>
+
+    <!-- Overlay Colors -->
+    <color name="overlay_dark">#CC000000</color>
+    <color name="overlay_light">#33FFFFFF</color>
+    <color name="scrim">#52000000</color>
+
+    <!-- Legacy compatibility -->
+    <color name="hotwheels_orange">#FF6B35</color>
+    <color name="hotwheels_blue">#0A1929</color>
+    <color name="hotwheels_red">#F44336</color>
+    <color name="primary_color">#FF6B35</color>
+    <color name="primary_dark">#E64A19</color>
+    <color name="accent_color">#00BCD4</color>
+    <color name="background_light">#1E1E1E</color>
+    <color name="text_primary_legacy">#FFFFFF</color>
+    <color name="text_secondary_legacy">#B0BEC5</color>
+</resources>
