@@ -21,23 +21,13 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Decode Keystore
-      env:
-        KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+    - name: Build Debug APK (no signing needed)
       run: |
-        echo $KEYSTORE_BASE64 | base64 -d > diecast-release.keystore
-
-    - name: Build Release APK
-      env:
-        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
-        KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-      run: |
-        ./gradlew assembleRelease --no-daemon
+        ./gradlew assembleDebug --no-daemon
 
     - name: Verify APK
       run: |
-        APK_PATH="app/build/outputs/apk/release/app-release.apk"
+        APK_PATH="app/build/outputs/apk/debug/app-debug.apk"
         if [ -f "$APK_PATH" ]; then
           echo "✅ APK generated successfully"
           ls -lh "$APK_PATH"
@@ -50,7 +40,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: car-identifier-test-apk
-        path: app/build/outputs/apk/release/app-release.apk
+        path: app/build/outputs/apk/debug/app-debug.apk
         retention-days: 7
 
     - name: Create Summary
@@ -63,10 +53,10 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "### 📦 APK Details:" >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
-        ls -lh app/build/outputs/apk/release/app-release.apk >> $GITHUB_STEP_SUMMARY
+        ls -lh app/build/outputs/apk/debug/app-debug.apk >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "### 📱 Install on device:" >> $GITHUB_STEP_SUMMARY
         echo '```bash' >> $GITHUB_STEP_SUMMARY
-        echo '~/Android/Sdk/platform-tools/adb install -r app-release.apk' >> $GITHUB_STEP_SUMMARY
+        echo '~/Android/Sdk/platform-tools/adb install -r app-debug.apk' >> $GITHUB_STEP_SUMMARY
         echo '```' >> $GITHUB_STEP_SUMMARY
