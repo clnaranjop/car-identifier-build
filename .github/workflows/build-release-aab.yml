@@ -11,22 +11,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       with:
-        lfs: false
+        lfs: true
 
-    - name: Setup Git LFS and pull files
-      run: |
-        git lfs install
-        git lfs pull
-        echo "=== LFS Files Status ==="
-        git lfs ls-files | head -20
-        echo "=== Checking assets sizes ==="
-        du -sh app/src/main/assets/reference_images/ || echo "reference_images not found"
-        du -sh app/src/main/assets/embeddings_mobilenetv3.json || echo "embeddings not found"
-        du -sh app/src/main/assets/mobilenetv3_embeddings.onnx || echo "onnx not found"
-        echo "=== Counting reference images ==="
-        find app/src/main/assets/reference_images/ -type f | wc -l || echo "0"
-        echo "=== Sample file check (should be actual image, not LFS pointer) ==="
-        file app/src/main/assets/reference_images/1968/hw_custom_camaro_1968_6208.jpg || echo "Sample file not found"
+    - name: Checkout LFS objects
+      run: git lfs checkout
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -43,24 +31,16 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Clean previous builds
-      run: |
-        ./gradlew clean --no-daemon
-        rm -rf app/build/
-        echo "✅ Cleaned previous builds"
-
     - name: Build Release AAB
-      run: |
-        ./gradlew bundleRelease --no-daemon --no-build-cache
+      run: ./gradlew bundleRelease --no-daemon
 
-    - name: Verify AAB
+    - name: Verify AAB and versionCode
       run: |
         AAB_PATH="app/build/outputs/bundle/release/app-release.aab"
         if [ -f "$AAB_PATH" ]; then
           echo "✅ AAB generated successfully"
           ls -lh "$AAB_PATH"
 
-          # Extract and verify versionCode
           unzip -q "$AAB_PATH" -d aab_extracted
           VERSION_CODE=$(grep -oP 'android:versionCode="\K[0-9]+' aab_extracted/base/manifest/AndroidManifest.xml || echo "unknown")
           VERSION_NAME=$(grep -oP 'android:versionName="\K[^"]+' aab_extracted/base/manifest/AndroidManifest.xml || echo "unknown")
