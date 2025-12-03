@@ -21,7 +21,9 @@ jobs:
 
     - name: Create keystore
       run: |
-        echo "${{ secrets.KEYSTORE_BASE64 }}" | tr -d '\n\r ' | base64 -d > diecast-release.keystore
+        echo '${{ secrets.KEYSTORE_BASE64 }}' > keystore.b64
+        base64 -d keystore.b64 > diecast-release.keystore
+        rm keystore.b64
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
