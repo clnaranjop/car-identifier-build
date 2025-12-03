@@ -13,6 +13,13 @@ jobs:
       with:
         lfs: true
 
+    - name: Pull LFS files
+      run: |
+        git lfs pull
+        echo "Checking LFS files..."
+        du -sh app/src/main/assets/reference_images/
+        du -sh app/src/main/assets/embeddings_mobilenetv3.json.gz
+
     - name: Set up JDK 17
       uses: actions/setup-java@v4
       with:
