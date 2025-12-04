@@ -3,11 +3,21 @@ package com.hotwheels.identifier.ui
 import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.hotwheels.identifier.R
+import com.hotwheels.identifier.data.AssetDownloader
+import kotlinx.coroutines.launch
 import java.util.Locale
 
 class SplashActivity : AppCompatActivity() {
@@ -40,13 +50,111 @@ class SplashActivity : AppCompatActivity() {
             or android.view.View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
         )
 
-        // Navegar a MainActivity después del delay
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
-            // Animación de transición suave
-            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
-        }, SPLASH_DELAY)
+        // Check if assets need to be downloaded
+        val downloader = AssetDownloader(this)
+        if (!downloader.areAssetsDownloaded()) {
+            // Check if connected to WiFi
+            if (!isConnectedToWiFi()) {
+                showWiFiWarningDialog(downloader)
+            } else {
+                startDownload(downloader)
+            }
+        } else {
+            // Assets already downloaded, proceed normally
+            Handler(Looper.getMainLooper()).postDelayed({
+                navigateToMain()
+            }, SPLASH_DELAY)
+        }
+    }
+
+    private fun isConnectedToWiFi(): Boolean {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val network = connectivityManager.activeNetwork ?: return false
+            val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
+            capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+        } else {
+            @Suppress("DEPRECATION")
+            val networkInfo = connectivityManager.activeNetworkInfo ?: return false
+            @Suppress("DEPRECATION")
+            networkInfo.type == ConnectivityManager.TYPE_WIFI
+        }
+    }
+
+    private fun showWiFiWarningDialog(downloader: AssetDownloader) {
+        AlertDialog.Builder(this)
+            .setTitle("Descarga requerida")
+            .setMessage("Esta aplicación necesita descargar aproximadamente 1.3 GB de datos para funcionar.\n\n" +
+                    "Se recomienda conectarse a WiFi para evitar cargos por datos móviles.\n\n" +
+                    "¿Desea continuar con la descarga?")
+            .setPositiveButton("Descargar") { _, _ ->
+                startDownload(downloader)
+            }
+            .setNegativeButton("Cancelar") { _, _ ->
+                finish()
+            }
+            .setCancelable(false)
+            .show()
+    }
+
+    private fun startDownload(downloader: AssetDownloader) {
+        // Show download UI
+        val downloadContainer = findViewById<View>(R.id.downloadContainer)
+        val progressBar = findViewById<ProgressBar>(R.id.downloadProgress)
+        val statusText = findViewById<TextView>(R.id.downloadStatus)
+
+        downloadContainer.visibility = View.VISIBLE
+
+        // Start download
+        lifecycleScope.launch {
+            statusText.text = "Descargando imágenes de referencia..."
+
+            val result = downloader.downloadAssets { progress ->
+                runOnUiThread {
+                    progressBar.progress = progress
+                    if (progress == 100) {
+                        statusText.text = "Extrayendo archivos..."
+                    } else {
+                        statusText.text = "Descargando: $progress%"
+                    }
+                }
+            }
+
+            result.onSuccess {
+                runOnUiThread {
+                    statusText.text = "¡Listo!"
+                    navigateToMain()
+                }
+            }.onFailure { error ->
+                runOnUiThread {
+                    statusText.text = "Error: ${error.message}\n\nPor favor, verifica tu conexión e intenta nuevamente."
+
+                    // Show retry button
+                    AlertDialog.Builder(this@SplashActivity)
+                        .setTitle("Error de descarga")
+                        .setMessage("No se pudieron descargar los archivos necesarios.\n\n" +
+                                "Error: ${error.message}\n\n" +
+                                "Por favor, verifica tu conexión a internet e intenta nuevamente.")
+                        .setPositiveButton("Reintentar") { _, _ ->
+                            // Retry download
+                            startDownload(downloader)
+                        }
+                        .setNegativeButton("Salir") { _, _ ->
+                            finish()
+                        }
+                        .setCancelable(false)
+                        .show()
+                }
+            }
+        }
+    }
+
+    private fun navigateToMain() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+        // Animación de transición suave
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
     }
 }

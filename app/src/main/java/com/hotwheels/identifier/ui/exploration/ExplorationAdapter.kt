@@ -119,20 +119,26 @@ class ExplorationAdapter(
 
         private fun loadImage(image: ReferenceImage) {
             try {
-                // Load bitmap from assets
-                val inputStream = assets.open(image.assetPath)
-                val originalBitmap = BitmapFactory.decodeStream(inputStream)
-                inputStream.close()
+                // Load bitmap from filesDir or assets using ImageUtils
+                val originalBitmap = com.hotwheels.identifier.utils.ImageUtils.loadBitmap(
+                    binding.root.context,
+                    image.assetPath
+                )
 
-                // Apply rotation if needed
-                val rotatedBitmap = if (image.currentRotation > 0) {
-                    rotateBitmap(originalBitmap, image.currentRotation.toFloat())
+                if (originalBitmap != null) {
+                    // Apply rotation if needed
+                    val rotatedBitmap = if (image.currentRotation > 0) {
+                        rotateBitmap(originalBitmap, image.currentRotation.toFloat())
+                    } else {
+                        originalBitmap
+                    }
+
+                    // Display in ImageView
+                    binding.imageView.setImageBitmap(rotatedBitmap)
                 } else {
-                    originalBitmap
+                    // Set placeholder if loading failed
+                    binding.imageView.setImageResource(R.drawable.icon_logo)
                 }
-
-                // Display in ImageView
-                binding.imageView.setImageBitmap(rotatedBitmap)
 
             } catch (e: Exception) {
                 e.printStackTrace()
