@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.hotwheels.identifier.R
 import com.hotwheels.identifier.data.AssetDownloader
+import com.hotwheels.identifier.utils.IncrementalAssetDownloader
 import kotlinx.coroutines.launch
 import java.util.Locale
 
@@ -52,6 +53,8 @@ class SplashActivity : AppCompatActivity() {
 
         // Check if assets need to be downloaded
         val downloader = AssetDownloader(this)
+        val incrementalDownloader = IncrementalAssetDownloader(this)
+
         if (!downloader.areAssetsDownloaded()) {
             // Check if connected to WiFi
             if (!isConnectedToWiFi()) {
@@ -60,7 +63,13 @@ class SplashActivity : AppCompatActivity() {
                 startDownload(downloader)
             }
         } else {
-            // Assets already downloaded, proceed normally
+            // Assets already downloaded
+            // For migration: Mark base collection as installed if not already marked
+            if (incrementalDownloader.getInstalledCollections().isEmpty()) {
+                incrementalDownloader.markBaseCollectionInstalled()
+            }
+
+            // Proceed normally
             Handler(Looper.getMainLooper()).postDelayed({
                 navigateToMain()
             }, SPLASH_DELAY)
@@ -124,6 +133,11 @@ class SplashActivity : AppCompatActivity() {
             result.onSuccess {
                 runOnUiThread {
                     statusText.text = "¡Listo!"
+
+                    // Mark base collection as installed for incremental updates
+                    val incrementalDownloader = IncrementalAssetDownloader(this@SplashActivity)
+                    incrementalDownloader.markBaseCollectionInstalled()
+
                     navigateToMain()
                 }
             }.onFailure { error ->

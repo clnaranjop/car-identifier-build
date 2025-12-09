@@ -19,10 +19,14 @@ import com.hotwheels.identifier.R
 import com.hotwheels.identifier.databinding.ActivityMainBinding
 import com.hotwheels.identifier.ui.camera.CameraActivity
 import com.hotwheels.identifier.ui.collection.CollectionActivity
+import com.hotwheels.identifier.utils.IncrementalAssetDownloader
 import com.hotwheels.identifier.viewmodel.MainViewModel
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.first
 import java.util.Locale
+import android.view.View
+import android.widget.ProgressBar
+import androidx.appcompat.app.AlertDialog
 
 class MainActivity : AppCompatActivity() {
 
@@ -83,6 +87,9 @@ class MainActivity : AppCompatActivity() {
 
             loadCarOfTheDay()
             Log.d(tag, "loadCarOfTheDay completed")
+
+            checkForDatabaseUpdates()
+            Log.d(tag, "checkForDatabaseUpdates completed")
 
             Log.d(tag, "MainActivity created successfully")
         } catch (e: Exception) {
@@ -201,11 +208,59 @@ class MainActivity : AppCompatActivity() {
                 Log.d(tag, "AdMob initialized successfully")
             }
 
+            // Add bottom padding to AdView if navigation bar is present
+            binding.adView.post {
+                val navBarHeight = getNavigationBarHeight()
+                if (navBarHeight > 0) {
+                    val params = binding.adView.layoutParams as android.widget.LinearLayout.LayoutParams
+                    params.bottomMargin = navBarHeight
+                    binding.adView.layoutParams = params
+                    Log.d(tag, "Added bottom margin of ${navBarHeight}px to AdView for navigation bar")
+                }
+            }
+
             val adRequest = AdRequest.Builder().build()
             binding.adView.loadAd(adRequest)
             Log.d(tag, "Ad request sent")
         } catch (e: Exception) {
             Log.e(tag, "Error initializing ads", e)
+        }
+    }
+
+    private fun getNavigationBarHeight(): Int {
+        val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+        return if (resourceId > 0) {
+            // Check if device has navigation buttons (not gesture navigation)
+            val hasNavigationBar = !isGestureNavigationEnabled()
+            if (hasNavigationBar) {
+                val height = resources.getDimensionPixelSize(resourceId)
+                Log.d(tag, "Navigation bar height: ${height}px")
+                height
+            } else {
+                Log.d(tag, "Gesture navigation detected, no bottom margin needed")
+                0
+            }
+        } else {
+            0
+        }
+    }
+
+    private fun isGestureNavigationEnabled(): Boolean {
+        val resources = resources
+        val resourceId = resources.getIdentifier("config_navBarInteractionMode", "integer", "android")
+        return if (resourceId > 0) {
+            val mode = resources.getInteger(resourceId)
+            Log.d(tag, "Navigation mode: $mode (2 = gesture)")
+            mode == 2 // 2 = gesture navigation
+        } else {
+            // Fallback: check if navbar height is very small (gesture navigation usually has thinner bar)
+            val navBarHeight = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+            if (navBarHeight > 0) {
+                val height = resources.getDimensionPixelSize(navBarHeight)
+                height < 48 // Gesture bars are typically < 48dp
+            } else {
+                true // Assume gesture if we can't determine
+            }
         }
     }
 
@@ -468,17 +523,25 @@ class MainActivity : AppCompatActivity() {
 
                 Log.d(tag, "Car of the day: ${randomModel.name}")
 
-                // Load and display the image
+                // Load and display the image using ImageUtils
                 val imagePath = randomModel.localImagePath
                 if (!imagePath.isNullOrEmpty()) {
-                    val inputStream = assets.open(imagePath)
-                    val bitmap = android.graphics.BitmapFactory.decodeStream(inputStream)
-                    inputStream.close()
+                    val bitmap = com.hotwheels.identifier.utils.ImageUtils.loadBitmap(
+                        this@MainActivity,
+                        imagePath
+                    )
 
-                    binding.imgCarOfTheDay.setImageBitmap(bitmap)
-                    binding.tvCarOfTheDayName.text = "${randomModel.name} (${randomModel.year})"
+                    if (bitmap != null) {
+                        binding.imgCarOfTheDay.setImageBitmap(bitmap)
+                        binding.tvCarOfTheDayName.text = "${randomModel.name} (${randomModel.year})"
+                        Log.d(tag, "Car of the day image loaded successfully")
+                    } else {
+                        binding.tvCarOfTheDayName.text = "${randomModel.name} (${randomModel.year})"
+                        Log.d(tag, "Failed to load car of the day image from: $imagePath")
+                    }
                 } else {
                     binding.tvCarOfTheDayName.text = "${randomModel.name} (${randomModel.year})"
+                    Log.d(tag, "No image path for car of the day")
                 }
 
             } catch (e: Exception) {
@@ -510,6 +573,127 @@ class MainActivity : AppCompatActivity() {
 
         } catch (e: Exception) {
             Log.e(tag, "Error showing full screen image", e)
+        }
+    }
+
+    /**
+     * Check if there are database updates available
+     */
+    private fun checkForDatabaseUpdates() {
+        lifecycleScope.launch {
+            try {
+                Log.d(tag, "Checking for database updates...")
+                val downloader = IncrementalAssetDownloader(this@MainActivity)
+                val updateInfo = downloader.checkForUpdates()
+
+                if (updateInfo.hasUpdates) {
+                    Log.d(tag, "Updates available: ${updateInfo.newModelCount} models, ${updateInfo.totalSizeMB} MB")
+                    runOnUiThread {
+                        showUpdateBanner(updateInfo)
+                    }
+                } else {
+                    Log.d(tag, "No updates available")
+                }
+            } catch (e: Exception) {
+                Log.e(tag, "Error checking for updates", e)
+                // Silently fail - updates are not critical
+            }
+        }
+    }
+
+    /**
+     * Show update banner with available updates
+     */
+    private fun showUpdateBanner(updateInfo: com.hotwheels.identifier.data.models.UpdateInfo) {
+        try {
+            binding.updateBanner.visibility = View.VISIBLE
+
+            val message = "${updateInfo.newModelCount} nuevos modelos disponibles (${updateInfo.totalSizeMB} MB)"
+            binding.tvUpdateMessage.text = message
+
+            binding.btnDownloadUpdate.setOnClickListener {
+                Log.d(tag, "Download update button clicked")
+                downloadUpdates(updateInfo)
+            }
+
+            Log.d(tag, "Update banner shown: $message")
+        } catch (e: Exception) {
+            Log.e(tag, "Error showing update banner", e)
+        }
+    }
+
+    /**
+     * Download and install database updates
+     */
+    private fun downloadUpdates(updateInfo: com.hotwheels.identifier.data.models.UpdateInfo) {
+        // Create progress dialog
+        val dialogView = layoutInflater.inflate(R.layout.dialog_download_progress, null)
+        val progressBar = dialogView.findViewById<ProgressBar>(R.id.progressBar)
+        val statusText = dialogView.findViewById<android.widget.TextView>(R.id.tvStatus)
+
+        val dialog = AlertDialog.Builder(this)
+            .setTitle("Actualizando base de datos")
+            .setView(dialogView)
+            .setCancelable(false)
+            .create()
+
+        dialog.show()
+
+        lifecycleScope.launch {
+            try {
+                val downloader = IncrementalAssetDownloader(this@MainActivity)
+
+                downloader.downloadUpdates(updateInfo) { progress, message ->
+                    runOnUiThread {
+                        progressBar.progress = progress
+                        statusText.text = message
+                    }
+                }.onSuccess {
+                    runOnUiThread {
+                        dialog.dismiss()
+
+                        // Hide update banner
+                        binding.updateBanner.visibility = View.GONE
+
+                        // Show success message
+                        Snackbar.make(
+                            binding.root,
+                            "✅ Base de datos actualizada correctamente",
+                            Snackbar.LENGTH_LONG
+                        ).show()
+
+                        Log.d(tag, "Database updated successfully")
+                    }
+                }.onFailure { error ->
+                    runOnUiThread {
+                        dialog.dismiss()
+
+                        // Show error dialog
+                        AlertDialog.Builder(this@MainActivity)
+                            .setTitle("Error de actualización")
+                            .setMessage("No se pudo actualizar la base de datos.\n\nError: ${error.message}")
+                            .setPositiveButton("Reintentar") { _, _ ->
+                                downloadUpdates(updateInfo)
+                            }
+                            .setNegativeButton("Cancelar", null)
+                            .show()
+
+                        Log.e(tag, "Error updating database", error)
+                    }
+                }
+            } catch (e: Exception) {
+                runOnUiThread {
+                    dialog.dismiss()
+
+                    AlertDialog.Builder(this@MainActivity)
+                        .setTitle("Error")
+                        .setMessage("Error inesperado: ${e.message}")
+                        .setPositiveButton("OK", null)
+                        .show()
+
+                    Log.e(tag, "Unexpected error during update", e)
+                }
+            }
         }
     }
 }

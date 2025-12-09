@@ -9,7 +9,7 @@ def getAutoVersionCode() {
     // Format: YYMMDDNN where NN is build number of the day (starts at 01)
     def date = new Date()
     def formattedDate = date.format('yyMMdd')
-    return formattedDate.toInteger() * 100 + 1 // Multiply by 100 and add build number
+    return formattedDate.toInteger() * 100 + 4 // Multiply by 100 and add build number (04 for today - incremental updates)
 }
 
 android {
@@ -21,7 +21,7 @@ android {
         minSdk 21
         targetSdk 35
         versionCode getAutoVersionCode()
-        versionName "2.1.2"
+        versionName "2.2.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

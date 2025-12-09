@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "base_version": "1.0",
+  "last_updated": "2024-12-08",
+  "collections": {
+    "base": {
+      "version": "1.0",
+      "years": "1968-2017",
+      "model_count": 11132,
+      "size_mb": 1300,
+      "files": {
+        "images": "https://github.com/YOUR_USERNAME/YOUR_REPO/releases/download/v1.0-assets/reference_images_v1.0.tar.gz",
+        "embeddings": "https://github.com/YOUR_USERNAME/YOUR_REPO/releases/download/v1.0-assets/embeddings_v1.0.json.gz"
+      },
+      "checksum": {
+        "images": "CALCULATE_MD5_OF_TAR_GZ",
+        "embeddings": "CALCULATE_MD5_OF_JSON_GZ"
+      }
+    }
+  }
+}
